@@ -1,0 +1,48 @@
+body {
+    padding-top: 200px;
+}
+
+.navbar .container {
+    margin-right: 0px;
+    margin-left: 0px;
+    height: auto;
+    width: auto;
+}
+
+.navbar-brand > img {
+    display: block;
+    height:auto;
+    max-height: 125px;
+}
+
+.navbar-brand {
+    padding: 10px 10px;
+    height: auto;
+}
+
+
+.navbar-default {
+    background: #ffffff none;
+    border: 4px solid #000000;
+}
+
+.navbar-header {
+    border-right: 4px solid #000000;
+}
+
+.navbar .logo h1 {
+    font-size: 55px;
+}
+
+.navbar .logo img {
+    height: 55px;
+}
+
+.container .madlib {
+    font-size: 26px;
+}
+
+.container .madlib mark {
+    background: none;
+    text-decoration: underline
+}
