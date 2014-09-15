@@ -5,24 +5,18 @@ angular.module('madlib', [])
     .controller('MadlibController', ['$scope', MadlibController]);
 
 function MadlibController ($scope) {
+    // Initial app state
+    $scope.appState = 'words';
+
+    // Initial placeholders
     $scope.madlib = {
-        name:               'name',
-        jobTitle:           'job title',
-        tediousTask:        'tedious task',
-        dirtyTask:          'dirty task',
-        celebrity:          'celebrity',
-        usefulSkill:        'useful skill',
-        obnoxiousCelebrity: 'obnoxious celebrity',
-        hugeNumber:         'huge number',
-        adjective:          'adjective',
         gender:             'male'
     };
 
     // TODO Is there a better way?
+    // convert to ng-change
     $scope.$watch(
-        function () {
-            return $scope.madlib.gender;
-        },
+        'madlib.gender',
         function (obj) {
             if (obj === 'male') {
                 $scope.madlib.pronounSubject = 'he';
@@ -31,9 +25,31 @@ function MadlibController ($scope) {
             } else {
                 $scope.madlib.pronounSubject = 'she';
                 $scope.madlib.pronounAdjective = 'her';
-                $scope.madlib.pronounObject = 'her'
+                $scope.madlib.pronounObject = 'her';
             }
         },
         true
     );
+
+    $scope.submit = function() {
+        $scope.error = null;
+
+        if ($scope.myForm.$pristine) {
+            $scope.error = "Please fill out the form";
+        } else if ($scope.myForm.$valid) {
+            $scope.appState = 'result';
+        } else if ($scope.myForm.$invalid) {
+            $scope.error = $scope.myForm.$error;
+        } else {
+            $scope.appState = 'words';
+        }
+    };
+
+    $scope.resetMadlib = function () {
+        $scope.appState = 'words';
+
+        $scope.madlib = {
+            gender: 'male'
+        };
+    };
 }
