@@ -34,12 +34,8 @@ function MadlibController ($scope) {
     $scope.submit = function() {
         $scope.error = null;
 
-        if ($scope.myForm.$pristine) {
-            $scope.error = "Please fill out the form";
-        } else if ($scope.myForm.$valid) {
+        if ($scope.myForm.$valid) {
             $scope.appState = 'result';
-        } else if ($scope.myForm.$invalid) {
-            $scope.error = $scope.myForm.$error;
         } else {
             $scope.appState = 'words';
         }
