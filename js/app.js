@@ -1,7 +1,7 @@
 /**
  * Created by pbaker on 9/14/14.
  */
-angular.module('madlib', [])
+angular.module('madlib', ['ngAnimate'])
     .controller('MadlibController', ['$scope', MadlibController]);
 
 function MadlibController ($scope) {

@@ -20,7 +20,6 @@ body {
     height: auto;
 }
 
-
 .navbar-default {
     background: #ffffff none;
     border: 4px solid #000000;
@@ -45,4 +44,21 @@ body {
 .container .madlib mark {
     background: none;
     text-decoration: underline
+}
+
+.words, .madlib-result {
+    -webkit-transition:0.5s linear all;
+    transition:0.5s linear all;
+    opacity:1;
+}
+
+.words.ng-hide, .madlib-result.ng-hide {
+    opacity:0;
+}
+
+.words.ng-hide-add, .words.ng-hide-remove, .madlib-result.ng-hide-add, .madlib-result.ng-hide-remove {
+    /* this needs to be here to make it visible during the animation
+       since the .ng-hide class is already on the element rendering
+       it as hidden. */
+    display:block!important;
 }
